@@ -11,7 +11,7 @@
 > industry allocation and over/underweights, concentration (top-10, HHI), per-stock active weights, active share
 > and overlap — with one-click industry drill-down, side-by-side comparison of multiple portfolios, data validation
 > with line-level error reports, and a full audit trail. All sample data is synthetic.
-> **Live demo:** <https://portfolio-holdings-analyzer.onrender.com/> (free instance — the first load may take ~30–60 s to wake up).
+> **Live demo:** <https://portfolio-holdings-analyzer.onrender.com/> (the first load may take ~30–60 s to wake up).
 
 ![功能演示](docs/screenshots/demo.gif)
 
