@@ -1,6 +1,7 @@
 """生成用于演示 / 对比 / 容错测试的组合 CSV：python scripts/gen_portfolios.py [--data ../data] [--seed 2026]
 
-合法组合写入 <data>/portfolios/（服务启动即预加载）；非法样例写入 <项目>/samples/invalid/（用于界面上传测试）。
+内置组合（6 个）写入 <data>/portfolios/（服务启动即预加载）；
+上传测试组合（6 个风格组合）写入 <项目>/samples/portfolios/，非法样例写入 <项目>/samples/invalid/，均用于界面上传测试。
 股票代码全部取自 <data>/stock_info.csv 与基准文件，行业由数据决定，不写死。"""
 from __future__ import annotations
 
@@ -86,6 +87,45 @@ def main() -> None:
 
     # 6) 与基准完全一致：市值严格按基准权重 → 主动份额 0、重合权重 1
     write(out / "benchmark_replica.csv", [(c, round(bw * 10_000_000_000)) for c, bw in bench.items()])
+
+    # ---------- 上传测试组合：风格组合（不放入 data/，供用户上传体验；行业按名称挑选，数据中不存在的行业自动跳过） ----------
+    extra = PROJECT / "samples" / "portfolios"
+    print("上传测试组合：")
+    def style(names: list[str], per: int, extra: int, total: int) -> list[tuple[str, int]]:
+        inds = [i for i in names if i in by_ind] or rnd.sample(industries, 2)
+        w = {c: rnd.uniform(0.6, 1.6) for ind in inds for c in rnd.sample(by_ind[ind], min(per, len(by_ind[ind])))}
+        for c in rnd.sample([c for c in all_codes if c not in w], extra):
+            w[c] = rnd.uniform(0.1, 0.4)
+        return to_mv(w, total, rnd)
+
+    # 7~9) 行业风格：价值金融 / 科技成长 / 大消费
+    write(extra / "value_financials.csv", style(["银行", "非银金融", "房地产"], 14, 12, 4_000_000_000))
+    write(extra / "tech_growth.csv", style(["电子", "计算机", "通信"], 14, 12, 3_500_000_000))
+    write(extra / "consumer_health.csv", style(["食品饮料", "医药生物"], 18, 10, 2_500_000_000))
+
+    # 10) 调仓后：在默认组合基础上卖出最小的 10 只、买入 10 只基准权重股、其余小幅调整 → 与 portfolio 对比看调仓效果
+    base = {r["stock_code"]: float(r["market_value"]) for r in read_csv(out / "portfolio.csv")}
+    keep = sorted(base, key=lambda c: (base[c], c))[10:]
+    w = {c: base[c] * rnd.uniform(0.85, 1.15) for c in keep}
+    top_bench = [c for c in sorted(bench, key=lambda c: (-bench[c], c)) if c not in w][:10]
+    total_mv = sum(base.values())
+    for c in top_bench:
+        w[c] = bench[c] * total_mv
+    write(extra / "portfolio_rebalanced.csv", to_mv(w, round(total_mv), rnd))
+
+    # 11) 小盘偏好：几乎全部持有基准外个股 → 主动份额接近 1、重合度很低
+    outside = [c for c in all_codes if c not in bench]
+    w = {c: rnd.uniform(0.5, 1.5) for c in rnd.sample(outside, min(60, len(outside)))}
+    write(extra / "small_cap.csv", to_mv(w, 1_200_000_000, rnd))
+
+    # 12) 逆向配置：只在基准权重最低的三分之一行业中选股 → 行业超低配方向与基准相反
+    ind_bw = defaultdict(float)
+    code_ind = {r["stock_code"]: r["industry"] for r in master}
+    for c, bw in bench.items():
+        ind_bw[code_ind[c]] += bw
+    light = sorted(industries, key=lambda i: (ind_bw[i], i))[: max(1, len(industries) // 3)]
+    write(extra / "contrarian.csv", style(light, 12, 0, 2_000_000_000))
+    print(f"    逆向配置行业：{'、'.join(light)}")
 
     # ---------- 非法样例（不放入 data/，避免干扰预置列表；用于上传测试） ----------
     bad = PROJECT / "samples" / "invalid"
