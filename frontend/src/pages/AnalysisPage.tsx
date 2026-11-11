@@ -130,7 +130,7 @@ export function AnalysisPage({ runId, onRunLoaded }: { runId?: string; onRunLoad
       <section className="context-bar" aria-label="分析上下文">
         <SourceSelect label="组合" items={portfolios} value={pid} onChange={setPid} />
         <SourceSelect label="业绩基准" items={benchmarks} value={bid} onChange={setBid} />
-        <a href={routes.dataCheck({ portfolio: pid, benchmark: bid })} style={{ fontSize: 15 }}>上传 / 校验数据</a>
+        <a href={routes.dataCheck({ portfolio: pid, benchmark: bid })} style={{ fontSize: 14 }}>上传 / 校验数据</a>
         <span className="muted">分析编号 <a href={routes.runs(run.id)} className="mono" style={{ fontWeight: 500 }}>{shortId(run.id)}</a></span>
         <span className="muted">{fmtTime(run.created_at)} · 总市值 {fmtMoney(m.total_market_value)}</span>
         <span className="counts">组合 {fmtInt(m.portfolio_stock_count)} 只 · 基准 {fmtInt(m.benchmark_stock_count)} 只 · 并集 {fmtInt(run.stocks.length)} 只</span>

@@ -132,7 +132,7 @@ export function ComparePage({ route }: { route: Route }) {
                   return (
                     <label key={p.id}>
                       <input type="checkbox" checked={on} disabled={!on && ids.length >= MAX} onChange={() => toggle(p.id)} />
-                      {p.name}{p.source === 'upload' ? '（上传）' : ''}<span className="muted" style={{ marginLeft: 'auto', fontSize: 14 }}>{p.row_count} 只</span>
+                      {p.name}{p.source === 'upload' ? '（上传）' : ''}<span className="muted" style={{ marginLeft: 'auto', fontSize: 13 }}>{p.row_count} 只</span>
                     </label>
                   )
                 })}
@@ -177,8 +177,8 @@ export function ComparePage({ route }: { route: Route }) {
                   })}
                 </div>
                 <div className="pos-xaxis" aria-hidden="true"><span>0%</span><span>50%</span><span>100%</span></div>
-                <div style={{ textAlign: 'center', fontSize: 14, color: 'var(--text-secondary)', marginTop: 2 }}>主动份额 →</div>
-                <div style={{ position: 'absolute', left: 62, top: 0, fontSize: 14, color: 'var(--text-secondary)' }}>HHI ↑</div>
+                <div style={{ textAlign: 'center', fontSize: 13, color: 'var(--text-secondary)', marginTop: 2 }}>主动份额 →</div>
+                <div style={{ position: 'absolute', left: 62, top: 0, fontSize: 13, color: 'var(--text-secondary)' }}>HHI ↑</div>
               </div>
             </Panel>
 
@@ -192,8 +192,8 @@ export function ComparePage({ route }: { route: Route }) {
                   <div className="k">≈ {(1 / sel.metrics.hhi).toFixed(1)} 只</div>
                 </div>
                 <div><div className="k">前十大权重</div><div className="v" title={fmtRaw(sel.metrics.top10_weight)}>{fmtPct(sel.metrics.top10_weight)}</div></div>
-                <div><div className="k">最大超配行业</div><div style={{ fontSize: 17 }}><IndustryText r={extremes(sel).over} /></div></div>
-                <div><div className="k">最大低配行业</div><div style={{ fontSize: 17 }}><IndustryText r={extremes(sel).under} /></div></div>
+                <div><div className="k">最大超配行业</div><div style={{ fontSize: 15 }}><IndustryText r={extremes(sel).over} /></div></div>
+                <div><div className="k">最大低配行业</div><div style={{ fontSize: 15 }}><IndustryText r={extremes(sel).under} /></div></div>
               </div>
             </Panel>
           </div>

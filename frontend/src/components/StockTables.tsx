@@ -116,7 +116,7 @@ export function ActiveWeightTable({ runId, side, defaultTop, industryHref }: {
       label={over ? '超配排行' : '低配排行'}
       title={`个股${over ? '超配' : '低配'} Top ${top}`}
       extra={
-        <label className="inline-field" style={{ fontSize: 14 }}>
+        <label className="inline-field" style={{ fontSize: 13 }}>
           显示
           <select className="select" style={{ height: 28 }} value={top} onChange={(e) => setTop(Number(e.target.value))}>
             {options.map((n) => <option key={n} value={n}>{n}</option>)}

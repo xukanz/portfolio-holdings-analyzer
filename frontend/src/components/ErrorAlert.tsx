@@ -36,7 +36,7 @@ export function ErrorAlert({ error, onClose, action }: { error: unknown; onClose
       {action && <div style={{ marginTop: 8 }}>{action}</div>}
       {lines.length > 0 && (
         <details>
-          <summary style={{ cursor: 'pointer', fontSize: 14, color: 'var(--text-link)', marginTop: 4 }}>查看明细（{lines.length} 处）</summary>
+          <summary style={{ cursor: 'pointer', fontSize: 13, color: 'var(--text-link)', marginTop: 4 }}>查看明细（{lines.length} 处）</summary>
           <ul>
             {lines.slice(0, 20).map((l, i) => <li key={i}>{l}</li>)}
             {lines.length > 20 && <li>…… 另有 {lines.length - 20} 处</li>}

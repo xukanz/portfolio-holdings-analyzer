@@ -39,7 +39,7 @@ export function RunHistoryTable({ refreshKey = 0, highlight }: { refreshKey?: nu
       title="分析记录（计算留痕）"
       subtitle={`每次分析持久化：输入文件指纹 + 参数 + 完整结果，可复现 · 共 ${total} 条`}
       extra={
-        <label className="inline-field" style={{ fontSize: 14 }}>
+        <label className="inline-field" style={{ fontSize: 13 }}>
           筛选
           <select className="select" style={{ height: 30 }} value={status} onChange={(e) => setStatus(e.target.value)}>
             <option value="">全部状态</option>
