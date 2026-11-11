@@ -163,11 +163,29 @@ class AnalysisService:
         issues = [i for e in [*entries, bench] for i in e.issues()]
         if issues:
             raise _issues_error(issues, "对比数据校验未通过")
-        runs = [self._run(pid, bid) for pid in portfolio_ids]
+        return self._comparison([self._run(pid, bid) for pid in portfolio_ids])
+
+    def compare_runs(self, analysis_ids: list[str]) -> dict[str, Any]:
+        """对比已有的分析结果：只读取留痕，不产生新的分析记录。"""
+        if not 2 <= len(analysis_ids) <= MAX_COMPARE:
+            raise DomainError(E.BAD_REQUEST, f"多组合对比需要 2~{MAX_COMPARE} 条分析记录", http_status=400)
+        if len(set(analysis_ids)) != len(analysis_ids):
+            raise DomainError(E.BAD_REQUEST, "对比的分析记录不能重复", http_status=400)
+        runs = [self.get_success_run(rid) for rid in analysis_ids]
+        keys = {(r["benchmark"]["id"], r["benchmark"].get("sha256"), r.get("master_sha256")) for r in runs}
+        if len(keys) > 1:
+            raise DomainError(E.BAD_REQUEST, "所选分析记录使用了不同的基准（或基准 / 主数据内容已变化），无法在同一口径下对比",
+                              [{"analysis_id": r["id"], "benchmark_id": r["benchmark"]["id"]} for r in runs],
+                              http_status=400)
+        return self._comparison(runs)
+
+    @staticmethod
+    def _comparison(runs: list[dict[str, Any]]) -> dict[str, Any]:
         return {
             "benchmark": runs[0]["benchmark"],
-            "items": [{"analysis_id": r["id"], "portfolio": r["portfolio"], "metrics": r["metrics"],
-                       "industries": r["industries"], "top10": r["top10"], "warnings": r["warnings"]}
+            "items": [{"analysis_id": r["id"], "created_at": r.get("created_at"), "portfolio": r["portfolio"],
+                       "metrics": r["metrics"], "industries": r.get("industries", []), "top10": r.get("top10", []),
+                       "warnings": r.get("warnings", [])}
                       for r in runs],
         }
 

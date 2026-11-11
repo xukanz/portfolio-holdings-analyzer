@@ -97,6 +97,7 @@ export interface Meta {
 
 export interface ComparisonItem {
   analysis_id: string
+  created_at?: string
   portfolio: SourceRef
   metrics: Metrics
   industries: IndustryRow[]

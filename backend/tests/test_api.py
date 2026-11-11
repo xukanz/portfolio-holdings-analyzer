@@ -193,6 +193,29 @@ def test_comparison(client):
     _assert_error(client.post("/api/comparisons", json={"portfolio_ids": ["portfolio", "x"]}), 404, "NOT_FOUND")
 
 
+def test_comparison_of_existing_runs_creates_no_records(client):
+    a = _analyze(client).json()["id"]
+    b = _analyze(client, "concentrated").json()["id"]
+    before = client.get("/api/history").json()["total"]
+    r = client.post("/api/comparisons", json={"analysis_ids": [a, b]})
+    assert r.status_code == 200
+    assert [i["analysis_id"] for i in r.json()["items"]] == [a, b]
+    assert r.json()["items"][0]["metrics"]["active_share"] == EXPECTED_ACTIVE_SHARE
+    assert client.get("/api/history").json()["total"] == before
+
+
+def test_comparison_of_runs_rejects_bad_input(client):
+    a = _analyze(client).json()["id"]
+    _assert_error(client.post("/api/comparisons", json={"analysis_ids": [a]}), 400, "BAD_REQUEST")
+    _assert_error(client.post("/api/comparisons", json={"analysis_ids": [a, a]}), 400, "BAD_REQUEST")
+    _assert_error(client.post("/api/comparisons", json={"analysis_ids": [a, "nope"]}), 404, "NOT_FOUND")
+    _assert_error(client.post("/api/comparisons", json={}), 400, "BAD_REQUEST")
+    bad = client.post("/api/portfolios", json={"name": "z", "holdings": [{"stock_code": "600000", "market_value": 1}]}).json()["id"]
+    up = client.post("/api/benchmarks/upload", files={"file": ("b2.csv", b"stock_code,weight\n600000,1\n", "text/csv")}).json()["id"]
+    c = _analyze(client, bad, up).json()["id"]
+    _assert_error(client.post("/api/comparisons", json={"analysis_ids": [a, c]}), 400, "BAD_REQUEST")
+
+
 def test_unexpected_exception_returns_no_stack(client, monkeypatch):
     def boom(*a, **k):
         raise RuntimeError("secret internal detail")

@@ -42,7 +42,8 @@ class ValidationIn(BaseModel):
 
 
 class ComparisonIn(BaseModel):
-    portfolio_ids: list[str]
+    analysis_ids: list[str] | None = None   # 对比已有分析结果（不产生新记录）
+    portfolio_ids: list[str] | None = None  # 现场分析这些组合再对比（每个组合各自留痕）
     benchmark_id: str | None = None
 
 
@@ -167,6 +168,10 @@ def export_csv(request: Request, run_id: str, type: Literal["industry", "active"
 
 @router.post("/comparisons")
 def create_comparison(request: Request, body: ComparisonIn) -> dict:
+    if (body.analysis_ids is None) == (body.portfolio_ids is None):
+        raise DomainError(E.BAD_REQUEST, "请提供 analysis_ids 或 portfolio_ids 其中之一", http_status=400)
+    if body.analysis_ids is not None:
+        return svc(request).compare_runs(body.analysis_ids)
     return svc(request).compare(body.portfolio_ids, body.benchmark_id)
 
 

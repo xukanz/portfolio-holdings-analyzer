@@ -78,8 +78,9 @@ export const api = {
   activeWeights: (id: string, side: 'over' | 'under', top: number) =>
     request<{ over?: StockRow[]; under?: StockRow[] }>(
       `/api/analyses/${encodeURIComponent(id)}/active-weights?side=${side}&top=${top}`),
-  compare: (portfolio_ids: string[], benchmark_id: string) =>
-    request<Comparison>('/api/comparisons', json({ portfolio_ids, benchmark_id })),
+  /** 对比已有的分析结果，不产生新的分析记录 */
+  compareRuns: (analysis_ids: string[]) =>
+    request<Comparison>('/api/comparisons', json({ analysis_ids })),
   history: (opts: { limit?: number; offset?: number; status?: string } = {}) => {
     const q = new URLSearchParams({ limit: String(opts.limit ?? 50), offset: String(opts.offset ?? 0) })
     if (opts.status) q.set('status', opts.status)

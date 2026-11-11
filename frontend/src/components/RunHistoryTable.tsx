@@ -83,7 +83,7 @@ export function RunHistoryTable({ refreshKey = 0, highlight }: { refreshKey?: nu
                           </td>
                           <td style={{ whiteSpace: 'nowrap' }}>
                             <a href={ok ? routes.analysis(h.id) : routes.runsNew(h.id)}>{ok ? '查看' : '查看原因'}</a>
-                            {ok && <a href={routes.compare({ ids: h.portfolio_id, bench: h.benchmark_id })} style={{ marginLeft: 12 }}>加入对比</a>}
+                            {ok && <a href={routes.compare({ add: h.id, bench: h.benchmark_id })} style={{ marginLeft: 12 }}>加入对比</a>}
                           </td>
                         </tr>
                       )

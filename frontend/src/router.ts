@@ -53,7 +53,8 @@ export function navigate(to: string, replace = false) {
 export const routes = {
   analysis: (runId?: string) => href(runId ? ['analysis', runId] : ['analysis']),
   industry: (runId: string, industry: string) => href(['analysis', runId, 'industry', industry]),
-  compare: (q?: { ids?: string; selected?: string; bench?: string }) => href(['compare'], q),
+  /** runs：要对比的分析记录 id（逗号分隔）；add：把这条记录追加到上次的对比选择中 */
+  compare: (q?: { runs?: string; add?: string; selected?: string; bench?: string }) => href(['compare'], q),
   runsNew: (run?: string) => href(['runs', 'new'], { run }),
   /** 数据与校验页：预选组合 / 基准；check=1 时进入后自动“仅校验” */
   dataCheck: (q: { portfolio?: string; benchmark?: string; check?: boolean }) =>
