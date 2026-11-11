@@ -1,0 +1,16 @@
+services:
+  - type: web
+    name: portfolio-holdings-analyzer
+    runtime: docker
+    plan: free
+    region: singapore
+    healthCheckPath: /api/meta
+    autoDeploy: true
+    envVars:
+      # 公开演示站的防滥用限制；本地运行不设置这些变量即不受限制
+      - key: PA_MAX_UPLOAD_MB
+        value: "2"
+      - key: PA_MAX_RUNS
+        value: "200"
+      - key: PA_MAX_UPLOADS
+        value: "20"

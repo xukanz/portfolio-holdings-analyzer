@@ -49,7 +49,8 @@ _SUMMARY_COLS = ("id, created_at, portfolio_id, portfolio_name, portfolio_sha256
 
 
 class HistoryStore:
-    def __init__(self, db_path: Path) -> None:
+    def __init__(self, db_path: Path, max_runs: int = 0) -> None:
+        self._max_runs = max_runs
         db_path.parent.mkdir(parents=True, exist_ok=True)
         self._conn = sqlite3.connect(db_path, check_same_thread=False)
         self._conn.row_factory = sqlite3.Row
@@ -73,6 +74,10 @@ class HistoryStore:
                  run["benchmark"]["sha256"], run["master_sha256"], run["duration_ms"],
                  json.dumps(run.get("metrics"), ensure_ascii=False), json.dumps(run, ensure_ascii=False),
                  run.get("status", "success"), error.get("code"), error.get("message")))
+            if self._max_runs > 0:
+                self._conn.execute(
+                    "DELETE FROM analysis_runs WHERE id NOT IN "
+                    "(SELECT id FROM analysis_runs ORDER BY created_at DESC LIMIT ?)", (self._max_runs,))
 
     def get_run(self, run_id: str) -> dict[str, Any] | None:
         with self._lock:

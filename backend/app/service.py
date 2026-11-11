@@ -50,6 +50,8 @@ class AnalysisService:
     master_sha256: str
     registry: Registry
     history: HistoryStore
+    max_upload_bytes: int = 20 * 1024 * 1024
+    max_uploads: int = 0
 
     # ---------- 数据源 ----------
     def _parse(self, kind: Kind, raw: bytes, source: str) -> Portfolio | Benchmark:
@@ -78,6 +80,11 @@ class AnalysisService:
     def register_upload(self, kind: Kind, name: str, raw: bytes, persist: bool = True,
                         entry_id: str | None = None, created_at: str | None = None) -> Entry:
         name = (name or "").strip()[:64] or f"未命名{'组合' if kind == 'portfolio' else '基准'}"
+        if persist and self.max_uploads > 0:
+            count = sum(1 for k in ("portfolio", "benchmark") for e in self.registry.list(k) if e.source == "upload")
+            if count >= self.max_uploads:
+                raise DomainError(E.BAD_REQUEST, f"演示站上传数量已达上限（{self.max_uploads} 个），可在本地运行完整版本",
+                                  http_status=429)
         data = self._parse(kind, raw, name)  # 上传数据不合规直接拒绝，不入库
         entry = Entry(id=entry_id or f"u-{uuid.uuid4().hex[:8]}", kind=kind, name=name, source="upload",
                       sha256=_sha256(raw), created_at=created_at or _now(), data=data)
@@ -194,7 +201,8 @@ def bootstrap(settings: Settings) -> AnalysisService:
     """加载全部数据。主数据缺失或损坏时抛出 DomainError，调用方据此拒绝启动。"""
     master_raw = read_file(settings.data_dir / "stock_info.csv")
     master = parse_master(master_raw, "stock_info.csv")
-    svc = AnalysisService(master, _sha256(master_raw), Registry(), HistoryStore(settings.db_path))
+    svc = AnalysisService(master, _sha256(master_raw), Registry(), HistoryStore(settings.db_path, settings.max_runs),
+                          max_upload_bytes=settings.max_upload_bytes, max_uploads=settings.max_uploads)
     for kind, sub in (("portfolio", "portfolios"), ("benchmark", "benchmarks")):
         folder = settings.data_dir / sub
         files = sorted(folder.glob("*.csv")) if folder.is_dir() else []

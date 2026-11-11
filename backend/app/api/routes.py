@@ -14,7 +14,6 @@ from app.domain.errors import DomainError
 from app.service import AnalysisService
 
 router = APIRouter(prefix="/api")
-MAX_UPLOAD_BYTES = 20 * 1024 * 1024
 
 
 def svc(request: Request) -> AnalysisService:
@@ -79,22 +78,23 @@ def create_portfolio(request: Request, body: PortfolioIn) -> dict:
     return svc(request).register_json_portfolio(body.name, items).summary()
 
 
-async def _read_upload(file: UploadFile) -> bytes:
-    raw = await file.read(MAX_UPLOAD_BYTES + 1)
-    if len(raw) > MAX_UPLOAD_BYTES:
-        raise DomainError(E.BAD_REQUEST, "文件过大（上限 20MB）", http_status=413)
+async def _read_upload(request: Request, file: UploadFile) -> bytes:
+    limit = svc(request).max_upload_bytes
+    raw = await file.read(limit + 1)
+    if len(raw) > limit:
+        raise DomainError(E.BAD_REQUEST, f"文件过大（上限 {limit / 1024 / 1024:g}MB）", http_status=413)
     return raw
 
 
 @router.post("/portfolios/upload", status_code=201)
 async def upload_portfolio(request: Request, file: UploadFile = File(...), name: str = Form("")) -> dict:
-    raw = await _read_upload(file)
+    raw = await _read_upload(request, file)
     return svc(request).register_upload("portfolio", name or _stem(file.filename), raw).summary()
 
 
 @router.post("/benchmarks/upload", status_code=201)
 async def upload_benchmark(request: Request, file: UploadFile = File(...), name: str = Form("")) -> dict:
-    raw = await _read_upload(file)
+    raw = await _read_upload(request, file)
     return svc(request).register_upload("benchmark", name or _stem(file.filename), raw).summary()
 
 

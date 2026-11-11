@@ -125,6 +125,18 @@ cd ../backend
 | `PA_DATA_DIR` | `data` | 数据目录 |
 | `PA_DB_PATH` | `backend/var/history.db` | 留痕数据库 |
 | `PA_FRONTEND_DIST` | `frontend/dist` | 前端产物目录（不存在则只提供 API） |
+| `PA_MAX_UPLOAD_MB` | `20` | 单个上传文件大小上限 |
+| `PA_MAX_RUNS` | `0`（不限） | 只保留最近 N 条分析记录 |
+| `PA_MAX_UPLOADS` | `0`（不限） | 上传数据源数量上限 |
+
+### Docker / 部署
+
+```bash
+docker build -t portfolio-analyzer .
+docker run -p 8000:8000 portfolio-analyzer        # 打开 http://127.0.0.1:8000
+```
+
+仓库自带 `render.yaml`，可在 [Render](https://render.com) 上通过 **New → Blueprint** 选择本仓库一键部署（免费实例，闲置后休眠，再次访问需等待约 30–60 秒唤醒；实例重启后上传数据与分析记录会清空）。公开实例默认启用上面三项限制：上传 2MB、记录 200 条、上传 20 个。
 
 ---
 
