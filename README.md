@@ -2,7 +2,7 @@
 
 ![Python](https://img.shields.io/badge/Python-3.11%2B-3776AB) ![FastAPI](https://img.shields.io/badge/FastAPI-009688) ![React](https://img.shields.io/badge/React-19-61DAFB) ![License: MIT](https://img.shields.io/badge/License-MIT-green)
 
-**在线演示：<https://portfolio-holdings-analyzer.onrender.com/>**（免费实例，闲置后会休眠，首次打开需等待约 30–60 秒唤醒；演示站数据会不定期清空）
+**在线演示：<https://portfolio-holdings-analyzer.onrender.com/>**（首次打开需等待约 30–60 秒唤醒）
 
 **给股票组合做一次“体检”**：它重仓了哪些行业？和基准相比哪里买多了、哪里买少了？是否过度集中？整体和基准有多像？
 上传持仓和基准，几秒钟得到行业分布、超低配、集中度、主动份额与重合度，并能一路追到是哪几只股票造成了偏离。
