@@ -1,0 +1,7 @@
+{
+  "case": "36_bench_unknown",
+  "title": "基准成分不在主数据中",
+  "checks": {},
+  "invalid": "benchmark",
+  "rule": "UNKNOWN_STOCK"
+}

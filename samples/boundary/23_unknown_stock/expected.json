@@ -1,0 +1,7 @@
+{
+  "case": "23_unknown_stock",
+  "title": "股票不在主数据中",
+  "checks": {},
+  "invalid": "portfolio",
+  "rule": "UNKNOWN_STOCK"
+}

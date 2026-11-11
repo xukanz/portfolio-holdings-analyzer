@@ -1,0 +1,7 @@
+{
+  "case": "20_mv_zero",
+  "title": "市值为 0",
+  "checks": {},
+  "invalid": "portfolio",
+  "rule": "NON_POSITIVE_MARKET_VALUE"
+}

@@ -1,0 +1,7 @@
+{
+  "case": "26_empty_value",
+  "title": "市值为空",
+  "checks": {},
+  "invalid": "portfolio",
+  "rule": "VALUE_UNPARSEABLE"
+}

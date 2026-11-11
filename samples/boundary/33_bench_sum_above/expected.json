@@ -1,0 +1,7 @@
+{
+  "case": "33_bench_sum_above",
+  "title": "基准合计 1.010001（刚超上限）",
+  "checks": {},
+  "invalid": "benchmark",
+  "rule": "BENCHMARK_WEIGHT_SUM_INVALID"
+}

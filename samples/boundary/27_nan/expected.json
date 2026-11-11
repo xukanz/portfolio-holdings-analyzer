@@ -1,0 +1,7 @@
+{
+  "case": "27_nan",
+  "title": "市值为 NaN",
+  "checks": {},
+  "invalid": "portfolio",
+  "rule": "VALUE_UNPARSEABLE"
+}

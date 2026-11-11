@@ -1,0 +1,70 @@
+{
+  "case": "09_round_half_up",
+  "title": "四舍五入边界：0.0000005 → 0.000001，0.9999995 → 1.000000",
+  "checks": {
+    "stock_weights": {
+      "600000": 1e-06,
+      "600001": 1.0
+    }
+  },
+  "valid": true,
+  "metrics": {
+    "portfolio_stock_count": 2,
+    "benchmark_stock_count": 1,
+    "total_market_value": 2000000,
+    "top10_weight": 1.0,
+    "hhi": 0.999999,
+    "active_share": 1.0,
+    "overlap_count": 0,
+    "overlap_weight": 0.0,
+    "overlap_plus_active_share": 1.0
+  },
+  "industries": {
+    "医药": {
+      "portfolio_weight": 0.0,
+      "benchmark_weight": 1.0,
+      "active_weight": -1.0
+    },
+    "电子": {
+      "portfolio_weight": 1.0,
+      "benchmark_weight": 0.0,
+      "active_weight": 1.0
+    },
+    "银行": {
+      "portfolio_weight": 1e-06,
+      "benchmark_weight": 0.0,
+      "active_weight": 1e-06
+    }
+  },
+  "stocks": {
+    "600000": {
+      "portfolio_weight": 1e-06,
+      "benchmark_weight": 0.0,
+      "active_weight": 1e-06,
+      "is_held": true,
+      "is_benchmark_constituent": false,
+      "active_side": "over"
+    },
+    "600001": {
+      "portfolio_weight": 1.0,
+      "benchmark_weight": 0.0,
+      "active_weight": 1.0,
+      "is_held": true,
+      "is_benchmark_constituent": false,
+      "active_side": "over"
+    },
+    "600002": {
+      "portfolio_weight": 0.0,
+      "benchmark_weight": 1.0,
+      "active_weight": -1.0,
+      "is_held": false,
+      "is_benchmark_constituent": true,
+      "active_side": "under"
+    }
+  },
+  "top10_codes": [
+    "600001",
+    "600000"
+  ],
+  "has_warning": false
+}

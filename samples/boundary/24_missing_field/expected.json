@@ -1,0 +1,7 @@
+{
+  "case": "24_missing_field",
+  "title": "缺少 market_value 列",
+  "checks": {},
+  "invalid": "portfolio",
+  "rule": "FIELD_MISSING"
+}

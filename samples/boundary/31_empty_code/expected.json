@@ -1,0 +1,7 @@
+{
+  "case": "31_empty_code",
+  "title": "股票代码为空",
+  "checks": {},
+  "invalid": "portfolio",
+  "rule": "INVALID_FILE"
+}

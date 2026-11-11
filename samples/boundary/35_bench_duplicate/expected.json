@@ -1,0 +1,7 @@
+{
+  "case": "35_bench_duplicate",
+  "title": "基准内代码重复",
+  "checks": {},
+  "invalid": "benchmark",
+  "rule": "DUPLICATE_STOCK_CODE"
+}

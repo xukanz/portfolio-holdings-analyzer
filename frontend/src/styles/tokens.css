@@ -1,0 +1,57 @@
+/* 设计令牌：取自 ui-spec 原型。组件只引用变量，不硬编码色值 */
+:root {
+  --brand-primary: #0E2A47;
+  --brand-accent: #B8862B;
+  --brand-gold: #D4A84B;
+  --brand-gold-text: #F1D9A6;
+  --topbar-muted: #9FB3C8;
+  --topbar-text: #D6E0EA;
+
+  --surface-page: #ECEFF3;
+  --surface-panel: #FFFFFF;
+  --surface-subtle: #FAFBFC;
+  --surface-panel-head: #F6F8FB;
+  --surface-nav-active: #EEF2F7;
+  --surface-bar-track: #F5F6F8;
+  --surface-progress-track: #E6EAEF;
+  --surface-row-selected: #FBF6EA;
+  --surface-code: #14202E;
+
+  --border-panel: #D9DFE7;
+  --border-row: #EEF0F3;
+  --border-control: #C9CFD6;
+  --border-zero-line: #8A94A2;
+  --border-dashed: #D3D8DE;
+
+  --text-body: #1B2430;
+  --text-heading: #0E2A47;
+  --text-secondary: #3A4553;
+  --text-muted: #5B6573;
+  --text-link: #1F4E79;
+  --text-on-brand: #FFFFFF;
+  --text-quadrant: #8A6A2A;
+
+  --chart-portfolio: #1F4E79;
+  --chart-benchmark: #B7C0CC;
+
+  --tag-bench-bg: #FBEFD5; --tag-bench-border: #E8C77F; --tag-bench-fg: #7A4B00;
+  --tag-both-bg: #EEF2F7; --tag-both-border: #C9D4E2; --tag-both-fg: #1F4E79;
+  --success: #14704A; --success-bg: #E8F4EE; --success-border: #A9D3BE;
+  --error: #9A2A22; --error-bg: #FDF2F1; --error-border: #E3A8A2;
+  --error-input-border: #C2362B; --error-input-bg: #FFF7F6;
+  --warning-bg: #FBF6EA; --warning-border: #E8C77F;
+
+  --radius-panel: 4px;
+  --shadow-panel: 0 1px 2px rgba(14, 42, 71, 0.06), 0 2px 8px rgba(14, 42, 71, 0.04);
+  --radius-control: 3px;
+  --font: 'PingFang SC', 'Microsoft YaHei', 'Noto Sans SC', 'Source Han Sans SC', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-mono: ui-monospace, 'SFMono-Regular', Menlo, Consolas, monospace;
+
+  /* 方向色：默认 A 股惯例 */
+  --up: #C2362B;
+  --down: #14704A;
+}
+:root[data-direction='colorblindSafe'] {
+  --up: #B4580C;
+  --down: #1F5FA8;
+}

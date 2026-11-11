@@ -1,0 +1,7 @@
+{
+  "case": "32_bench_sum_below",
+  "title": "基准合计 0.989999（刚超下限）",
+  "checks": {},
+  "invalid": "benchmark",
+  "rule": "BENCHMARK_WEIGHT_SUM_INVALID"
+}

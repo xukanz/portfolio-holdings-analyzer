@@ -1,0 +1,78 @@
+{
+  "case": "07_identical_to_benchmark",
+  "title": "组合与基准完全一致：主动份额 0，重合权重 1",
+  "checks": {
+    "active_share": 0.0,
+    "overlap_weight": 1.0
+  },
+  "valid": true,
+  "metrics": {
+    "portfolio_stock_count": 4,
+    "benchmark_stock_count": 4,
+    "total_market_value": 100,
+    "top10_weight": 1.0,
+    "hhi": 0.3,
+    "active_share": 0.0,
+    "overlap_count": 4,
+    "overlap_weight": 1.0,
+    "overlap_plus_active_share": 1.0
+  },
+  "industries": {
+    "医药": {
+      "portfolio_weight": 0.2,
+      "benchmark_weight": 0.2,
+      "active_weight": 0.0
+    },
+    "电子": {
+      "portfolio_weight": 0.3,
+      "benchmark_weight": 0.3,
+      "active_weight": 0.0
+    },
+    "银行": {
+      "portfolio_weight": 0.5,
+      "benchmark_weight": 0.5,
+      "active_weight": 0.0
+    }
+  },
+  "stocks": {
+    "600000": {
+      "portfolio_weight": 0.4,
+      "benchmark_weight": 0.4,
+      "active_weight": 0.0,
+      "is_held": true,
+      "is_benchmark_constituent": true,
+      "active_side": "neutral"
+    },
+    "600001": {
+      "portfolio_weight": 0.3,
+      "benchmark_weight": 0.3,
+      "active_weight": 0.0,
+      "is_held": true,
+      "is_benchmark_constituent": true,
+      "active_side": "neutral"
+    },
+    "600002": {
+      "portfolio_weight": 0.2,
+      "benchmark_weight": 0.2,
+      "active_weight": 0.0,
+      "is_held": true,
+      "is_benchmark_constituent": true,
+      "active_side": "neutral"
+    },
+    "600003": {
+      "portfolio_weight": 0.1,
+      "benchmark_weight": 0.1,
+      "active_weight": 0.0,
+      "is_held": true,
+      "is_benchmark_constituent": true,
+      "active_side": "neutral"
+    }
+  },
+  "top10_codes": [
+    "600000",
+    "600001",
+    "600002",
+    "600003"
+  ],
+  "has_warning": false
+}

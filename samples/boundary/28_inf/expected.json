@@ -1,0 +1,7 @@
+{
+  "case": "28_inf",
+  "title": "市值为 inf",
+  "checks": {},
+  "invalid": "portfolio",
+  "rule": "VALUE_UNPARSEABLE"
+}

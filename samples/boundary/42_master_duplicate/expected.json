@@ -1,0 +1,7 @@
+{
+  "case": "42_master_duplicate",
+  "title": "主数据代码重复",
+  "checks": {},
+  "startup_refused": true,
+  "drop_master": false
+}

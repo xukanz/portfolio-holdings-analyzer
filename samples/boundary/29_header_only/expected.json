@@ -1,0 +1,7 @@
+{
+  "case": "29_header_only",
+  "title": "只有表头没有持仓",
+  "checks": {},
+  "invalid": "portfolio",
+  "rule": "EMPTY_PORTFOLIO"
+}

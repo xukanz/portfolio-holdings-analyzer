@@ -1,0 +1,13 @@
+backend/.venv/
+backend/var/
+__pycache__/
+.pytest_cache/
+frontend/node_modules/
+frontend/dist/
+data_stress/
+.DS_Store
+*.log
+.env
+.vscode/
+.idea/
+*.db

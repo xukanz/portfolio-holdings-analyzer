@@ -1,0 +1,7 @@
+{
+  "case": "30_empty_file",
+  "title": "空文件",
+  "checks": {},
+  "invalid": "portfolio",
+  "rule": "INVALID_FILE"
+}

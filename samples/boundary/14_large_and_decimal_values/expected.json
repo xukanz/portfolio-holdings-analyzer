@@ -1,0 +1,75 @@
+{
+  "case": "14_large_and_decimal_values",
+  "title": "超大市值、小数市值、科学计数法",
+  "checks": {},
+  "valid": true,
+  "metrics": {
+    "portfolio_stock_count": 4,
+    "benchmark_stock_count": 2,
+    "total_market_value": 1250000123456789.5,
+    "top10_weight": 1.0,
+    "hhi": 0.68,
+    "active_share": 0.3,
+    "overlap_count": 2,
+    "overlap_weight": 0.7,
+    "overlap_plus_active_share": 1.0
+  },
+  "industries": {
+    "医药": {
+      "portfolio_weight": 0.2,
+      "benchmark_weight": 0.0,
+      "active_weight": 0.2
+    },
+    "电子": {
+      "portfolio_weight": 0.0,
+      "benchmark_weight": 0.0,
+      "active_weight": 0.0
+    },
+    "银行": {
+      "portfolio_weight": 0.8,
+      "benchmark_weight": 1.0,
+      "active_weight": -0.2
+    }
+  },
+  "stocks": {
+    "600000": {
+      "portfolio_weight": 0.8,
+      "benchmark_weight": 0.7,
+      "active_weight": 0.1,
+      "is_held": true,
+      "is_benchmark_constituent": true,
+      "active_side": "over"
+    },
+    "600001": {
+      "portfolio_weight": 0.0,
+      "benchmark_weight": 0.0,
+      "active_weight": 0.0,
+      "is_held": true,
+      "is_benchmark_constituent": false,
+      "active_side": "over"
+    },
+    "600002": {
+      "portfolio_weight": 0.2,
+      "benchmark_weight": 0.0,
+      "active_weight": 0.2,
+      "is_held": true,
+      "is_benchmark_constituent": false,
+      "active_side": "over"
+    },
+    "600003": {
+      "portfolio_weight": 0.0,
+      "benchmark_weight": 0.3,
+      "active_weight": -0.3,
+      "is_held": true,
+      "is_benchmark_constituent": true,
+      "active_side": "under"
+    }
+  },
+  "top10_codes": [
+    "600000",
+    "600002",
+    "600003",
+    "600001"
+  ],
+  "has_warning": false
+}

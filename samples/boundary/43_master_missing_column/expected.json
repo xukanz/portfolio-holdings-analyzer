@@ -1,0 +1,7 @@
+{
+  "case": "43_master_missing_column",
+  "title": "主数据缺少 industry 列",
+  "checks": {},
+  "startup_refused": true,
+  "drop_master": false
+}

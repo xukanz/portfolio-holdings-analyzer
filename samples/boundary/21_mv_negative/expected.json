@@ -1,0 +1,7 @@
+{
+  "case": "21_mv_negative",
+  "title": "市值为负",
+  "checks": {},
+  "invalid": "portfolio",
+  "rule": "NON_POSITIVE_MARKET_VALUE"
+}

@@ -1,0 +1,171 @@
+{
+  "case": "04_all_equal_weights",
+  "title": "15 只等权：前十大取代码最小的 10 只，权重 10/15",
+  "checks": {
+    "top10_weight": 0.666667
+  },
+  "valid": true,
+  "metrics": {
+    "portfolio_stock_count": 15,
+    "benchmark_stock_count": 2,
+    "total_market_value": 1500,
+    "top10_weight": 0.666667,
+    "hhi": 0.066667,
+    "active_share": 0.866667,
+    "overlap_count": 2,
+    "overlap_weight": 0.133333,
+    "overlap_plus_active_share": 1.0
+  },
+  "industries": {
+    "医药": {
+      "portfolio_weight": 0.333333,
+      "benchmark_weight": 0.5,
+      "active_weight": -0.166667
+    },
+    "电子": {
+      "portfolio_weight": 0.333333,
+      "benchmark_weight": 0.0,
+      "active_weight": 0.333333
+    },
+    "银行": {
+      "portfolio_weight": 0.333333,
+      "benchmark_weight": 0.5,
+      "active_weight": -0.166667
+    }
+  },
+  "stocks": {
+    "600000": {
+      "portfolio_weight": 0.066667,
+      "benchmark_weight": 0.5,
+      "active_weight": -0.433333,
+      "is_held": true,
+      "is_benchmark_constituent": true,
+      "active_side": "under"
+    },
+    "600001": {
+      "portfolio_weight": 0.066667,
+      "benchmark_weight": 0.0,
+      "active_weight": 0.066667,
+      "is_held": true,
+      "is_benchmark_constituent": false,
+      "active_side": "over"
+    },
+    "600002": {
+      "portfolio_weight": 0.066667,
+      "benchmark_weight": 0.0,
+      "active_weight": 0.066667,
+      "is_held": true,
+      "is_benchmark_constituent": false,
+      "active_side": "over"
+    },
+    "600003": {
+      "portfolio_weight": 0.066667,
+      "benchmark_weight": 0.0,
+      "active_weight": 0.066667,
+      "is_held": true,
+      "is_benchmark_constituent": false,
+      "active_side": "over"
+    },
+    "600004": {
+      "portfolio_weight": 0.066667,
+      "benchmark_weight": 0.0,
+      "active_weight": 0.066667,
+      "is_held": true,
+      "is_benchmark_constituent": false,
+      "active_side": "over"
+    },
+    "600005": {
+      "portfolio_weight": 0.066667,
+      "benchmark_weight": 0.0,
+      "active_weight": 0.066667,
+      "is_held": true,
+      "is_benchmark_constituent": false,
+      "active_side": "over"
+    },
+    "600006": {
+      "portfolio_weight": 0.066667,
+      "benchmark_weight": 0.0,
+      "active_weight": 0.066667,
+      "is_held": true,
+      "is_benchmark_constituent": false,
+      "active_side": "over"
+    },
+    "600007": {
+      "portfolio_weight": 0.066667,
+      "benchmark_weight": 0.0,
+      "active_weight": 0.066667,
+      "is_held": true,
+      "is_benchmark_constituent": false,
+      "active_side": "over"
+    },
+    "600008": {
+      "portfolio_weight": 0.066667,
+      "benchmark_weight": 0.0,
+      "active_weight": 0.066667,
+      "is_held": true,
+      "is_benchmark_constituent": false,
+      "active_side": "over"
+    },
+    "600009": {
+      "portfolio_weight": 0.066667,
+      "benchmark_weight": 0.0,
+      "active_weight": 0.066667,
+      "is_held": true,
+      "is_benchmark_constituent": false,
+      "active_side": "over"
+    },
+    "600010": {
+      "portfolio_weight": 0.066667,
+      "benchmark_weight": 0.0,
+      "active_weight": 0.066667,
+      "is_held": true,
+      "is_benchmark_constituent": false,
+      "active_side": "over"
+    },
+    "600011": {
+      "portfolio_weight": 0.066667,
+      "benchmark_weight": 0.0,
+      "active_weight": 0.066667,
+      "is_held": true,
+      "is_benchmark_constituent": false,
+      "active_side": "over"
+    },
+    "600012": {
+      "portfolio_weight": 0.066667,
+      "benchmark_weight": 0.0,
+      "active_weight": 0.066667,
+      "is_held": true,
+      "is_benchmark_constituent": false,
+      "active_side": "over"
+    },
+    "600013": {
+      "portfolio_weight": 0.066667,
+      "benchmark_weight": 0.0,
+      "active_weight": 0.066667,
+      "is_held": true,
+      "is_benchmark_constituent": false,
+      "active_side": "over"
+    },
+    "600014": {
+      "portfolio_weight": 0.066667,
+      "benchmark_weight": 0.5,
+      "active_weight": -0.433333,
+      "is_held": true,
+      "is_benchmark_constituent": true,
+      "active_side": "under"
+    }
+  },
+  "top10_codes": [
+    "600000",
+    "600001",
+    "600002",
+    "600003",
+    "600004",
+    "600005",
+    "600006",
+    "600007",
+    "600008",
+    "600009"
+  ],
+  "has_warning": false
+}

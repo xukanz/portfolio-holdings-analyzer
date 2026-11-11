@@ -1,0 +1,68 @@
+{
+  "case": "15_format_variants",
+  "title": "格式：主数据 GBK；组合带 BOM/CRLF/空行/多余列/列顺序颠倒/空格；代码前导 0",
+  "checks": {
+    "leading_zero_kept": "000001"
+  },
+  "valid": true,
+  "metrics": {
+    "portfolio_stock_count": 3,
+    "benchmark_stock_count": 2,
+    "total_market_value": 1000,
+    "top10_weight": 1.0,
+    "hhi": 0.38,
+    "active_share": 0.2,
+    "overlap_count": 2,
+    "overlap_weight": 0.8,
+    "overlap_plus_active_share": 1.0
+  },
+  "industries": {
+    "房地产": {
+      "portfolio_weight": 0.2,
+      "benchmark_weight": 0.0,
+      "active_weight": 0.2
+    },
+    "银行": {
+      "portfolio_weight": 0.3,
+      "benchmark_weight": 0.5,
+      "active_weight": -0.2
+    },
+    "食品饮料": {
+      "portfolio_weight": 0.5,
+      "benchmark_weight": 0.5,
+      "active_weight": 0.0
+    }
+  },
+  "stocks": {
+    "000001": {
+      "portfolio_weight": 0.3,
+      "benchmark_weight": 0.5,
+      "active_weight": -0.2,
+      "is_held": true,
+      "is_benchmark_constituent": true,
+      "active_side": "under"
+    },
+    "000002": {
+      "portfolio_weight": 0.2,
+      "benchmark_weight": 0.0,
+      "active_weight": 0.2,
+      "is_held": true,
+      "is_benchmark_constituent": false,
+      "active_side": "over"
+    },
+    "600519": {
+      "portfolio_weight": 0.5,
+      "benchmark_weight": 0.5,
+      "active_weight": 0.0,
+      "is_held": true,
+      "is_benchmark_constituent": true,
+      "active_side": "neutral"
+    }
+  },
+  "top10_codes": [
+    "600519",
+    "000001",
+    "000002"
+  ],
+  "has_warning": false
+}

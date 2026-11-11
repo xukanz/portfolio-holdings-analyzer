@@ -1,0 +1,55 @@
+{
+  "case": "10_tiny_weight_still_held",
+  "title": "权重舍入为 0 的持仓仍算“持有”、仍计入重合股票数",
+  "checks": {
+    "overlap_count": 2,
+    "tiny_display_zero": "600000"
+  },
+  "valid": true,
+  "metrics": {
+    "portfolio_stock_count": 2,
+    "benchmark_stock_count": 2,
+    "total_market_value": 1000000001,
+    "top10_weight": 1.0,
+    "hhi": 1.0,
+    "active_share": 0.5,
+    "overlap_count": 2,
+    "overlap_weight": 0.5,
+    "overlap_plus_active_share": 1.0
+  },
+  "industries": {
+    "电子": {
+      "portfolio_weight": 1.0,
+      "benchmark_weight": 0.5,
+      "active_weight": 0.5
+    },
+    "银行": {
+      "portfolio_weight": 0.0,
+      "benchmark_weight": 0.5,
+      "active_weight": -0.5
+    }
+  },
+  "stocks": {
+    "600000": {
+      "portfolio_weight": 0.0,
+      "benchmark_weight": 0.5,
+      "active_weight": -0.5,
+      "is_held": true,
+      "is_benchmark_constituent": true,
+      "active_side": "under"
+    },
+    "600001": {
+      "portfolio_weight": 1.0,
+      "benchmark_weight": 0.5,
+      "active_weight": 0.5,
+      "is_held": true,
+      "is_benchmark_constituent": true,
+      "active_side": "over"
+    }
+  },
+  "top10_codes": [
+    "600001",
+    "600000"
+  ],
+  "has_warning": false
+}

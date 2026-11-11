@@ -1,0 +1,7 @@
+{
+  "case": "22_duplicate_code",
+  "title": "组合内代码重复",
+  "checks": {},
+  "invalid": "portfolio",
+  "rule": "DUPLICATE_STOCK_CODE"
+}

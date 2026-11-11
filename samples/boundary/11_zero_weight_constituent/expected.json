@@ -1,0 +1,68 @@
+{
+  "case": "11_zero_weight_constituent",
+  "title": "基准里权重为 0 的成分：计入并集，但不算重合（两边须 > 0）",
+  "checks": {
+    "overlap_count": 1,
+    "union": 3
+  },
+  "valid": true,
+  "metrics": {
+    "portfolio_stock_count": 2,
+    "benchmark_stock_count": 3,
+    "total_market_value": 100,
+    "top10_weight": 1.0,
+    "hhi": 0.5,
+    "active_share": 0.5,
+    "overlap_count": 1,
+    "overlap_weight": 0.5,
+    "overlap_plus_active_share": 1.0
+  },
+  "industries": {
+    "医药": {
+      "portfolio_weight": 0.0,
+      "benchmark_weight": 0.0,
+      "active_weight": 0.0
+    },
+    "电子": {
+      "portfolio_weight": 0.5,
+      "benchmark_weight": 0.0,
+      "active_weight": 0.5
+    },
+    "银行": {
+      "portfolio_weight": 0.5,
+      "benchmark_weight": 1.0,
+      "active_weight": -0.5
+    }
+  },
+  "stocks": {
+    "600000": {
+      "portfolio_weight": 0.5,
+      "benchmark_weight": 1.0,
+      "active_weight": -0.5,
+      "is_held": true,
+      "is_benchmark_constituent": true,
+      "active_side": "under"
+    },
+    "600001": {
+      "portfolio_weight": 0.5,
+      "benchmark_weight": 0.0,
+      "active_weight": 0.5,
+      "is_held": true,
+      "is_benchmark_constituent": true,
+      "active_side": "over"
+    },
+    "600002": {
+      "portfolio_weight": 0.0,
+      "benchmark_weight": 0.0,
+      "active_weight": 0.0,
+      "is_held": false,
+      "is_benchmark_constituent": true,
+      "active_side": "neutral"
+    }
+  },
+  "top10_codes": [
+    "600000",
+    "600001"
+  ],
+  "has_warning": false
+}

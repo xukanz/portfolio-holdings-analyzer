@@ -1,0 +1,7 @@
+{
+  "case": "41_master_empty_industry",
+  "title": "主数据行业字段为空",
+  "checks": {},
+  "startup_refused": true,
+  "drop_master": false
+}

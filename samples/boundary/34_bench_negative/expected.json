@@ -1,0 +1,7 @@
+{
+  "case": "34_bench_negative",
+  "title": "基准权重为负",
+  "checks": {},
+  "invalid": "benchmark",
+  "rule": "NEGATIVE_BENCHMARK_WEIGHT"
+}

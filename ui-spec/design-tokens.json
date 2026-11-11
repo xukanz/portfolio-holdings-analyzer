@@ -1,0 +1,99 @@
+{
+  "$description": "投资组合持仓分析工具 · 设计令牌。前端实现时映射为 CSS 变量（如 --color-brand-primary），禁止在组件内硬编码色值。",
+  "color": {
+    "brand": {
+      "primary": "#0E2A47",
+      "primaryText": "#FFFFFF",
+      "accent": "#B8862B",
+      "accentOnDark": "#D4A84B",
+      "accentOnDarkText": "#F1D9A6"
+    },
+    "surface": {
+      "page": "#F3F4F6",
+      "panel": "#FFFFFF",
+      "tableHeader": "#FAFBFC",
+      "subtle": "#F7F8FA",
+      "barTrack": "#F5F6F8",
+      "progressTrack": "#E6EAEF",
+      "navActive": "#EEF2F7",
+      "rowSelected": "#FBF6EA",
+      "codeBlock": "#0F1B2A"
+    },
+    "border": {
+      "panel": "#E1E4E8",
+      "row": "#EEF0F3",
+      "control": "#C9CFD6",
+      "zeroLine": "#8A94A2",
+      "gridDashed": "#D3D8DE"
+    },
+    "text": {
+      "primary": "#1B2430",
+      "secondary": "#3A4553",
+      "muted": "#5B6573",
+      "heading": "#0E2A47",
+      "link": "#1F4E79",
+      "linkHover": "#0E2A47",
+      "onDarkMuted": "#D6E0EA",
+      "codeOnDark": "#D6E0EA"
+    },
+    "chart": {
+      "portfolio": "#1F4E79",
+      "benchmark": "#B7C0CC"
+    },
+    "direction": {
+      "$description": "超配/低配方向色，两套方案由用户设置切换，默认 aShare。方向信息必须同时用 ▲/▼ 与 +/− 表达，不得只靠颜色。",
+      "aShare": { "over": "#C2362B", "under": "#14704A" },
+      "colorblindSafe": { "over": "#B4580C", "under": "#1F5FA8" }
+    },
+    "status": {
+      "success": { "fg": "#14704A", "bg": "#E8F3EE", "border": "#A9D3BF" },
+      "error": { "fg": "#9A2A22", "bg": "#FBEAE8", "border": "#EBB8B2", "inputBorder": "#C2362B", "inputBg": "#FFF7F6" },
+      "benchOnlyTag": { "fg": "#7A4B00", "bg": "#FBEFD5", "border": "#E8C77F" },
+      "bothHeldTag": { "fg": "#1F4E79", "bg": "#EEF2F7", "border": "#C9D4E2" }
+    }
+  },
+  "font": {
+    "family": {
+      "base": "'IBM Plex Sans', 'Noto Sans SC', 'PingFang SC', 'Microsoft YaHei', sans-serif",
+      "mono": "'IBM Plex Mono', Consolas, monospace"
+    },
+    "numeric": "tabular-nums",
+    "$note": "全局开启 font-variant-numeric: tabular-nums，保证数字列上下对齐。字体需本地打包（不依赖外部网络 / CDN），可放 public/fonts 或回退系统字体。",
+    "size": {
+      "caption": "11px",
+      "small": "12px",
+      "body": "13px",
+      "base": "14px",
+      "title": "16px",
+      "h1": "22px",
+      "kpiSecondary": "24px",
+      "kpi": "28px"
+    },
+    "weight": { "regular": 400, "medium": 500, "semibold": 600 }
+  },
+  "space": {
+    "xxs": "4px",
+    "xs": "6px",
+    "sm": "8px",
+    "md": "12px",
+    "lg": "16px",
+    "xl": "20px",
+    "xxl": "28px"
+  },
+  "radius": {
+    "tag": "2px",
+    "control": "3px",
+    "panel": "4px",
+    "pill": "16px"
+  },
+  "size": {
+    "headerHeight": "56px",
+    "sidebarWidth": "200-220px",
+    "buttonHeight": "36px",
+    "buttonHeightLarge": "40px",
+    "inputHeight": "36px",
+    "selectHeightCompact": "32px",
+    "contentMinWidth": "560px",
+    "breakpointStack": "phone width: sidebar stacks above content"
+  }
+}

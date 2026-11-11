@@ -1,0 +1,69 @@
+{
+  "case": "01_doc_example",
+  "title": "文档示例：A、B 只在组合 / C 只在基准，主动份额 0.5",
+  "checks": {
+    "active_share": 0.5,
+    "overlap_count": 1,
+    "union": 3
+  },
+  "valid": true,
+  "metrics": {
+    "portfolio_stock_count": 2,
+    "benchmark_stock_count": 2,
+    "total_market_value": 100,
+    "top10_weight": 1.0,
+    "hhi": 0.52,
+    "active_share": 0.5,
+    "overlap_count": 1,
+    "overlap_weight": 0.5,
+    "overlap_plus_active_share": 1.0
+  },
+  "industries": {
+    "行业丙": {
+      "portfolio_weight": 0.0,
+      "benchmark_weight": 0.5,
+      "active_weight": -0.5
+    },
+    "行业乙": {
+      "portfolio_weight": 0.4,
+      "benchmark_weight": 0.0,
+      "active_weight": 0.4
+    },
+    "行业甲": {
+      "portfolio_weight": 0.6,
+      "benchmark_weight": 0.5,
+      "active_weight": 0.1
+    }
+  },
+  "stocks": {
+    "600000": {
+      "portfolio_weight": 0.6,
+      "benchmark_weight": 0.5,
+      "active_weight": 0.1,
+      "is_held": true,
+      "is_benchmark_constituent": true,
+      "active_side": "over"
+    },
+    "600001": {
+      "portfolio_weight": 0.4,
+      "benchmark_weight": 0.0,
+      "active_weight": 0.4,
+      "is_held": true,
+      "is_benchmark_constituent": false,
+      "active_side": "over"
+    },
+    "600002": {
+      "portfolio_weight": 0.0,
+      "benchmark_weight": 0.5,
+      "active_weight": -0.5,
+      "is_held": false,
+      "is_benchmark_constituent": true,
+      "active_side": "under"
+    }
+  },
+  "top10_codes": [
+    "600000",
+    "600001"
+  ],
+  "has_warning": false
+}

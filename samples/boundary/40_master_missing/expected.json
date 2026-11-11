@@ -1,0 +1,7 @@
+{
+  "case": "40_master_missing",
+  "title": "主数据文件缺失",
+  "checks": {},
+  "startup_refused": true,
+  "drop_master": true
+}
