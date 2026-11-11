@@ -10,7 +10,7 @@
 > and overlap — with one-click industry drill-down, side-by-side comparison of multiple portfolios, data validation
 > with line-level error reports, and a full audit trail. All sample data is synthetic.
 
-![组合体检](docs/screenshots/analysis.png)
+![功能演示](docs/screenshots/demo.gif)
 
 ---
 
@@ -24,7 +24,7 @@
 - **持仓明细**：全部持仓的市值、组合权重、基准权重、主动权重；支持搜索、按行业筛选、表头排序、分页，并可切换为包含未持有基准成分的并集视图。
 - 顶部可随时切换组合 / 基准，重新分析。
 
-（效果见页首截图）
+![组合体检](docs/screenshots/analysis.png)
 
 ### 🔍 行业穿透 —— 从“偏离了”到“谁造成的”
 
